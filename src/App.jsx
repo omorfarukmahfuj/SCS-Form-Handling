@@ -11,10 +11,14 @@ function App() {
     setUsers([...users, user]);
   }
 
+  const handleRemove = (id) => {
+    setUsers(users.filter((item, index) => index !== id))
+  }
+
   return (
     <div className='w-full h-screen bg-zinc-200 flex items-center justify-center'>
       <div className='container mx-auto'>
-        <Cards users={users} ></Cards>
+        <Cards handleRemove={handleRemove} users={users} ></Cards>
         <Form addUser={addUser}></Form>
       </div>
 
